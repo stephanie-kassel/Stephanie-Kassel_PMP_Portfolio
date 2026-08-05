@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stephanie Kassel, PMP — Senior Project Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3F4F6;
+    --paper-alt:#FFFFFF;
+    --ink:#12161F;
+    --ink-soft:#495363;
+    --ink-faint:#8891A0;
+    --navy:#1F3A5F;
+    --navy-deep:#142840;
+    --steel:#5B7A9D;
+    --brass:#A9812F;
+    --line:#DEE2E8;
+    --radius:10px;
+    --display:'Archivo', system-ui, sans-serif;
+    --body:'IBM Plex Sans', system-ui, sans-serif;
+    --mono:'IBM Plex Mono', monospace;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--body);
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  section{padding:92px 24px;}
+  .wrap{max-width:1060px; margin:0 auto;}
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--navy);
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:16px;
+  }
+  .eyebrow::before{
+    content:'';
+    width:22px;
+    height:1.5px;
+    background:var(--brass);
+    display:inline-block;
+  }
+
+  h1,h2,h3{font-family:var(--display); line-height:1.12; letter-spacing:-0.01em;}
+  h2{font-size:clamp(26px,3.6vw,36px); font-weight:700; margin-bottom:14px; color:var(--ink);}
+  p{color:var(--ink-soft);}
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    background:rgba(243,244,246,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1060px; margin:0 auto; padding:16px 24px;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:16px; flex-wrap:wrap;
+  }
+  .nav-mark{
+    font-family:var(--display); font-weight:700; font-size:15.5px;
+    display:flex; align-items:center; gap:9px;
+  }
+  .nav-mark .mark{
+    width:10px; height:10px; background:var(--navy); flex-shrink:0;
+  }
+  nav.links{display:flex; gap:22px; flex-wrap:wrap; align-items:center;}
+  nav.links a{
+    font-family:var(--mono); font-size:12px; text-transform:uppercase;
+    letter-spacing:0.08em; color:var(--ink-soft); text-decoration:none;
+    padding-bottom:2px; border-bottom:1px solid transparent;
+    transition:color .2s, border-color .2s;
+  }
+  nav.links a:hover, nav.links a:focus-visible{color:var(--navy); border-color:var(--navy);}
+  nav.links a.resume-link{color:var(--navy); font-weight:600;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:172px 24px 96px;
+    position:relative;
+    overflow:hidden;
+    background:var(--paper-alt);
+    border-bottom:1px solid var(--line);
+  }
+  .blueprint{
+    position:absolute; inset:0; z-index:0; opacity:.5; pointer-events:none;
+  }
+  .hero .wrap{position:relative; z-index:1;}
+  .hero h1{
+    font-size:clamp(36px,5.8vw,60px);
+    font-weight:800;
+    color:var(--ink);
+  }
+  .hero .role{
+    font-family:var(--mono); font-weight:500;
+    font-size:clamp(13px,1.6vw,15px);
+    color:var(--navy);
+    letter-spacing:.04em;
+    margin-top:16px;
+    text-transform:uppercase;
+  }
+  .hero p.lede{
+    margin-top:20px; max-width:58ch; font-size:17px;
+  }
+  .chips{
+    display:flex; flex-wrap:wrap; gap:10px;
+    margin-top:30px;
+  }
+  .chip{
+    font-family:var(--mono); font-size:12px;
+    border:1px solid var(--line); background:var(--paper);
+    padding:8px 14px; border-radius:4px; color:var(--ink-soft);
+  }
+  .cta-row{display:flex; flex-wrap:wrap; gap:14px; margin-top:32px;}
+  .btn{
+    font-family:var(--body); font-weight:600; font-size:14.5px;
+    padding:13px 26px; border-radius:4px; text-decoration:none;
+    display:inline-flex; align-items:center; gap:8px;
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--navy); color:#fff;}
+  .btn-primary:hover{background:var(--navy-deep); box-shadow:0 10px 22px -10px rgba(20,40,64,.5);}
+  .btn-ghost{background:transparent; color:var(--ink); border:1.5px solid var(--ink);}
+
+  /* ---------- ABOUT / STATS ---------- */
+  .about{background:var(--paper);}
+  .about .grid{
+    display:grid; grid-template-columns:1.1fr 1fr; gap:56px; align-items:start;
+  }
+  .about p{font-size:16px; max-width:54ch;}
+  .stats{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .stat{
+    background:var(--paper-alt); border:1px solid var(--line); border-radius:var(--radius);
+    padding:20px 18px; border-left:3px solid var(--navy);
+  }
+  .stat .num{
+    font-family:var(--display); font-weight:800; font-size:26px; color:var(--navy);
+    display:block;
+  }
+  .stat .label{font-family:var(--mono); font-size:11px; color:var(--ink-faint); text-transform:uppercase; letter-spacing:.05em;}
+
+  /* ---------- ROADMAP (GANTT) ---------- */
+  .roadmap{background:var(--paper-alt); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .roadmap-intro{max-width:62ch; margin-bottom:48px;}
+  .gantt{border:1px solid var(--line); border-radius:var(--radius); padding:28px 28px 20px; background:var(--paper);}
+  .gantt-axis{
+    display:grid; grid-template-columns:180px 1fr;
+    font-family:var(--mono); font-size:11px; color:var(--ink-faint);
+    margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid var(--line);
+  }
+  .gantt-axis .years{display:flex; justify-content:space-between;}
+  .gantt-row{
+    display:grid; grid-template-columns:180px 1fr;
+    align-items:center; gap:0; margin-bottom:16px;
+  }
+  .gantt-row .glabel{font-family:var(--body); font-size:13.5px; font-weight:600; color:var(--ink);}
+  .gantt-row .gsub{font-family:var(--mono); font-size:10.5px; color:var(--ink-faint); margin-top:2px;}
+  .gtrack{position:relative; height:26px; background:repeating-linear-gradient(to
